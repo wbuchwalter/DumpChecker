@@ -2,16 +2,16 @@ import re
 from DBAccess import DBAccess
 from abc import ABCMeta, abstractmethod
 
-
 class IDumpParser(object):
     __metaclass__ = ABCMeta
 
-    def __init__(self, url):
+    def __init__(self):
         self.dump_id = ''
-        self.dump_url = url
+        self.dump_url = ''
         self.dbAccess = DBAccess()
 
-    def parse(self, withSaving=False):
+    def parse(self, url, withSaving=True):
+        self.dump_url = url
         if withSaving:
             self.saveDump()
         return self.extractInfosFromDump(withSaving)
