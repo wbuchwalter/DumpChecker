@@ -5,17 +5,19 @@ A tool to check if an email adresse has been compromised.
 
 DumpChecker is divided into two modules:
 
--Parser
+*Parser
 
--API
+*API
 
 
-Parser: 
+Parser
+------
 A set of python classes that parse tweets from @dumpmon to detect new dumps.
 New dumps are then downloaded and saved into the DB.
 
 
-API:
+API
+------
 A node.js application, that allow anyone to check if his email address has been compromised.
 
 
