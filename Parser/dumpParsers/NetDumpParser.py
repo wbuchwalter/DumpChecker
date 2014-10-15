@@ -15,7 +15,7 @@ class NetDumpParser(IDumpParser):
 
     def getRawDump(self):
         i = urllib.urlopen(self.dump_url)
-        html = i.read()
+        html = unicode(i.read(), 'utf-8')
         self.saveRawDump(html)
         return html
 

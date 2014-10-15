@@ -9,4 +9,4 @@ class DumpSaver(object):
     def writeDumpToFile(self, rawData, originalUrl):
         wf = open('dumps/' + time.strftime("%Y%m%d-%H%M%S") + '.txt', 'w')
         finalData = originalUrl + '\n' + rawData
-        wf.write(finalData)
+        wf.write(finalData.encode('utf-8'))
