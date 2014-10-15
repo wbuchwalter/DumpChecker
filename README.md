@@ -4,10 +4,8 @@ DumpChecker
 A tool to check if an email adresse has been compromised.
 
 DumpChecker is divided into two modules:
-
-*Parser
-
-*API
+  * Parser
+  * API
 
 
 Parser
