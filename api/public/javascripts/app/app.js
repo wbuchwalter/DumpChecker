@@ -4,7 +4,8 @@ angular.module('DumpChecker', [
   'DumpChecker.controllers',
   'DumpChecker.filters',
   'DumpChecker.services',
-  'DumpChecker.directives'
+  'DumpChecker.directives',
+  'ngRoute'
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
@@ -14,7 +15,7 @@ config(function ($routeProvider, $locationProvider) {
     }).
     when('/analytics', {
       templateUrl: 'partials/analytics',
-      controller: 'analyticsCtrl'
+      controller: 'AnalyticsCtrl'
     }).
     otherwise({
       redirectTo: '/'
