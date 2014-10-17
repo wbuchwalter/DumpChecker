@@ -1,5 +1,5 @@
 import re
-from DBAccess import DBAccess
+from DatabaseController import DatabaseController
 from abc import ABCMeta, abstractmethod
 
 class IDumpParser(object):
@@ -8,7 +8,7 @@ class IDumpParser(object):
     def __init__(self):
         self.dump_id = ''
         self.dump_url = ''
-        self.dbAccess = DBAccess()
+        self.dbAccess = DatabaseController()
 
     def parse(self, url, withSaving=True):
         self.dump_url = url

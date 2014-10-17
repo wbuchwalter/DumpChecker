@@ -2,13 +2,21 @@
 
 angular.module('DumpChecker.controllers', []).
   controller('AppCtrl', function ($scope, $http) {
+    $scope.data = {criteria:''};
+    $scope.isLoading = false;
 
-    $scope.data = {mail:'enter email'};
+    $http.get('/api/count').
+        success(function (data) {
+            $scope.nbIdLeaked = data;
+        })
 
     $scope.search = function () {
-        $http.get('/api/search/' + $scope.data.mail).
+        $scope.response = {};
+        $scope.isLoading = true;
+        $http.get('/api/search/' + $scope.data.criteria).
         success(function(data) {
-                $scope.response = data;
+                $scope.isLoading = false;
+                $scope.response.isHacked = data;
             });
     };
 

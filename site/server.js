@@ -6,6 +6,7 @@
 var express = require('express');
 var routes = require('./routes');
 var search = require('./controllers/search');
+var analytics = require('./controllers/analytics');
 var http = require('http');
 var path = require('path');
 
@@ -32,6 +33,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 app.get('/api/search/:query', search.search);
+app.get('/api/count', analytics.countLeakedIdentities);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

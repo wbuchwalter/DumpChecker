@@ -1,6 +1,21 @@
 
 div
-  input(type="email", name="input", ng-model="data.mail", class="form-control")
+    form(id='searchForm')
+        input(type="text", name="input", ng-model="data.criteria", class="form-control", required)
 
-  button(class="btn btn-primary btn-lg", ng-click="search()") search
-  tt {{response}}
+        button(class="btn btn-primary btn-lg", ng-click="search()", ngDisabled="searchForm.input.$error.required") search
+
+    div(ng-show="isLoading")
+        h1 LOADING ...
+    div(ng-hide="response.isHacked == null")
+        div(ng-show="response.isHacked")
+            .jumbotron
+                p Hacked
+        div(ng-hide="response.isHacked")
+            .jumbotron
+                p Not Hacked
+
+    div
+        tt {{nbIdLeaked | number : 0}} leaked mails
+
+     
