@@ -32,6 +32,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
+app.get('/api/searchone/:query', search.searchOne);
 app.get('/api/search/:query', search.search);
 app.get('/api/count', analytics.countLeakedIdentities);
 

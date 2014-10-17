@@ -7,7 +7,7 @@ class DatabaseController:
 
     def __init__(self):
         self.client = MongoClient('localhost', 27017)
-        self.db = self.client.testImportAdobe
+        self.db = self.client.leakChecker
         self.dumpItems = self.db.dumpItems
 
     def insertDump(self, dumpUrl):

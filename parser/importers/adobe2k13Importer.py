@@ -3,6 +3,7 @@ __author__ = 'Will'
 from DatabaseController import DatabaseController
 import time
 import threading
+import sys
 
 class parsingMonitor(object):
 
@@ -20,7 +21,7 @@ class parsingMonitor(object):
 
     @classmethod
     def printStatus(cls):
-        sleeptime = 10
+        sleeptime = 2
         while 1:
             oldCount = cls.counter
             time.sleep(sleeptime)
@@ -90,9 +91,10 @@ class adobe2k13ImporterThread(threading.Thread):
             self.itemsToInsert = []
 
 
+filePath = sys.argv[1]
 
-parserThread = adobe2k13ImporterThread(1, '../dumps/cred', 0, 75000000)
-parserThread2 = adobe2k13ImporterThread(2, '../dumps/cred', 75000001, 153000000)
+parserThread = adobe2k13ImporterThread(1, filePath, 0, 75000000)
+parserThread2 = adobe2k13ImporterThread(2, filePath, 75000001, 153000000)
 parserThread.start()
 parserThread2.start()
 

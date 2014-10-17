@@ -14,6 +14,8 @@ div
         div(ng-hide="response.isHacked")
             .jumbotron
                 p Not Hacked
+    div(ng-repeat="mail in mails")
+        tt {{mail.mail}}
 
     div
         tt {{nbIdLeaked | number : 0}} leaked mails
