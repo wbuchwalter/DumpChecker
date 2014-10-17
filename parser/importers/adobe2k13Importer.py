@@ -1,8 +1,4 @@
 __author__ = 'Will'
-'''
-Adobe 2013 leak is so huge (150M+ rows, 9GB text file), it' better to make a custom importer to be able
-to customize things
-'''
 
 from DatabaseController import DatabaseController
 import time
