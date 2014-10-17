@@ -33,10 +33,8 @@ class DatabaseController:
 
     def insertBulkDumpItems(self, dumpItems):
         bulk = self.dumpItems.initialize_unordered_bulk_op()
-
         for dumpItem in dumpItems:
             bulk.insert(dumpItem)
-
         try:
             bulk.execute()
         except BulkWriteError as bwe:

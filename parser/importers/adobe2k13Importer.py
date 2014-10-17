@@ -20,7 +20,7 @@ class parsingMonitor(object):
 
     @classmethod
     def printStatus(cls):
-        sleeptime = 1
+        sleeptime = 10
         while 1:
             oldCount = cls.counter
             time.sleep(sleeptime)
@@ -91,12 +91,9 @@ class adobe2k13ImporterThread(threading.Thread):
 
 
 
-parserThread = adobe2k13ImporterThread(1, '../dumps/cred', 0, 3000000)
-parserThread2 = adobe2k13ImporterThread(2, '../dumps/cred', 3000001, 6000000)
-parserThread3 = adobe2k13ImporterThread(3, '../dumps/cred', 6000001, 10000000)
-
+parserThread = adobe2k13ImporterThread(1, '../dumps/cred', 0, 75000000)
+parserThread2 = adobe2k13ImporterThread(2, '../dumps/cred', 75000001, 153000000)
 parserThread.start()
 parserThread2.start()
-# parserThread3.start()
 
 parsingMonitor.startMonitoring()
