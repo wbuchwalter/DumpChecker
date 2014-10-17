@@ -13,7 +13,7 @@ angular.module('DumpChecker.controllers', []).
     $scope.search = function () {
         $scope.response = {};
         $scope.isLoading = true;
-        $http.get('/api/searchone/' + $scope.data.criteria).
+        $http.get('/api/search/' + $scope.data.criteria).
         success(function(data) {
                 $scope.isLoading = false;
                 $scope.mails = data;

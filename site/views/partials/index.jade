@@ -1,9 +1,11 @@
 
 div
+    tt {{nbIdLeaked | number : 0}} leaked mails
     form(id='searchForm')
-        input(type="text", name="input", ng-model="data.criteria", class="form-control", required)
-
-        button(class="btn btn-primary btn-lg", ng-click="search()", ngDisabled="searchForm.input.$error.required") search
+        .row
+            .col-md-8
+                input(type="text", name="input", ng-model="data.criteria", class="form-control", required)
+            button(class="btn btn-primary col-md-1", ng-click="search()", ngDisabled="searchForm.input.$error.required") search
 
     div(ng-show="isLoading")
         h1 LOADING ...
@@ -14,10 +16,16 @@ div
         div(ng-hide="response.isHacked")
             .jumbotron
                 p Not Hacked
-    div(ng-repeat="mail in mails")
-        tt {{mail.mail}}
+    tt {{mails.length}}
+    div(class="mail", ng-repeat="mail in mails")
+        .row
+            .col-md-6
+                tt {{mail.mail}}
+            div(class="col-md-2", ng-hide="mail.secret == null")
+                span(class="label label-primary") {{mail.secret}}
+            div(class="col-md-1",ng-show="mail.dump_id == '5441260a1dd8063ac7b3ee77' || mail.dump_id == '5441260a1dd8063ac7b3ee78'")
+                span(class="label label-warning") Adobe
 
-    div
-        tt {{nbIdLeaked | number : 0}} leaked mails
+
 
      

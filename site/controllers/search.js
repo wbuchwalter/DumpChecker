@@ -38,7 +38,7 @@ exports.search = function (req, res) {
 
     var dumpItems = db.model('dumpItems', dumpItemsSchema,'dumpItems');
 
-    dumpItems.find({mail : RegExp(query)}).limit(10).exec(function (err,items) {
+    dumpItems.find({ $text: { $search : query}}).exec(function (err,items) {
         if(err)
             console.error(err);
         res.send(items);
