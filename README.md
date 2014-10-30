@@ -1,7 +1,7 @@
 DumpChecker
 ===========
 
-A tool to allow anyone to check if their email has been compromised.
+A tool to allow anyone to check if their email address has been compromised.
 
 DumpChecker is divided into two parts:
   * Parser
