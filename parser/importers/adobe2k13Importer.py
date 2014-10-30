@@ -81,7 +81,6 @@ class adobe2k13ImporterThread(threading.Thread):
             return
         dumpItem = {
             'mail': arr[2],
-            'pwd': arr[3] if arrLen > 3 else '',
             'secret': arr[4] if arrLen > 4 else '',
             'dump_id': self.dump_id
         }
